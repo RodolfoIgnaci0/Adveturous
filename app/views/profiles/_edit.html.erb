@@ -1,0 +1,42 @@
+<div id="myModal" class="modal" tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editing Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_with(model: @profile, local: true) do |form| %>
+          <% if @profile.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+              <ul>
+              <% @profile.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="form-group">
+            <%= form.label :name %>
+            <%= form.text_field :name, class:'form-control'%>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :age %>
+            <%= form.number_field :age, class:'form-control' %>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <%= form.submit class:'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

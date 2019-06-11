@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-end">
+  <a class="navbar-brand" href="#"><%= image_tag('sin_fondo.png', class:'img-fluid') %></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= asset_path root_path %>">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <% unless current_user.nil? %>
+          <%= link_to 'Perfil', profile_path(current_user), class:'nav-link' %>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <a class="disabled" href="#" tabindex="-1" aria-disabled="true">
+          <% if current_user.nil? %>
+            <%= link_to 'Ingresar', new_user_session_path, class:'nav-link' %>
+          <% else %>
+            <%= link_to 'Deslogear', destroy_user_session_path, method: :delete, class:'nav-link' %>
+          <% end %>
+        </a>
+      </li>
+      <li class="nav-item">
+        <% unless current_user.nil? %>
+          <p class='nav-link'> Welcome:  <%= current_user.email %></p>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>

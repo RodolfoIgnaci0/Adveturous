@@ -1,0 +1,18 @@
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col">
+      <div class="img-fluid" style="height:300px; width:300px; background:black;"></div>
+    </div>
+    <div class="col">
+      <% @user_data.each do |data| %>
+      <p> user_id: <%= data.user_id %> </p>
+      <p> name: <%= data.name %> </p>
+      <p> age: <%= data.age %> </p>
+      <%= link_to 'Change', edit_profile_path(data), remote:true, class:'btn btn-info' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div id="edit_profile"></div>
