@@ -10,5 +10,4 @@ class User < ApplicationRecord
   def build_profile
     Profile.create!(user_id: id)
   end
-
 end
