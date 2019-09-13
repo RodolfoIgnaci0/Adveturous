@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :profiles, only: [:show,:edit,:update]
+  resources :trips, only: [:new, :index]
+  resources :profiles, only: [:show, :edit, :update]
   resources :landings, only: [:index]
   resources :countries, only: [:index]
   devise_for :users

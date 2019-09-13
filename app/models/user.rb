@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :profile
+  has_many :trips
+  has_many :countries, through: :trips
+
   after_create :build_profile
 
   def build_profile

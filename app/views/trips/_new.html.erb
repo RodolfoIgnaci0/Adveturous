@@ -1,0 +1,14 @@
+<div class="container">
+  <%= form_with(model: Trip.new, local: true) do |form| %>
+
+
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.select :name, Country.pluck(:name) %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit class:'btn btn-warning' %>
+    </div>
+  <% end %>
+</div>
